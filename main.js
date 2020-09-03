@@ -5,7 +5,6 @@ const MyId = "606239365320147004"
 const LeosId = '287794972479193098'
 const prefix = '/'; // the prefix for the commands
 const AlastairId = '405502769387274243'
-const ytdl = require("ytdl-core");
 const fs = require('fs');
 const { pathToFileURL } = require('url');
 const queue = new Map();
@@ -65,18 +64,7 @@ client.on('message', message =>{
         message.channel.send('the dm has been sent');
 
     }else if(command === 'help'){
-        helpAuthor = message.author;
-        helpAuthor.send('LIST OF COMMANDS FOR MESSAGE BOT');
-        helpAuthor.send('/twitch = mickey rats twitch');
-        helpAuthor.send('/dm mention someone snd type a message after it to privatly message someone');
-        helpAuthor.send('/ping responds with pong');
-        helpAuthor.send('/jahfrog posts our king jahfrog in chat');
-        helpAuthor.send('/help posts a list of commands');
-        helpAuthor.send('LIST OF COMMANDS FOR MUSIC BOT');
-        helpAuthor.send('!play add a youtube link and the bot will join your channel and play until the queue has ended');
-        helpAuthor.send('!skip skips the current track');
-        helpAuthor.send('!stop stops the musci and disconnects the bot');
-        message.channel.send('help has been sent');
+        client.commands.get('help').execute(message,args);
 
     }
     else if(command === 'purge'){
